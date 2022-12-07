@@ -1,9 +1,6 @@
 Imports Microsoft.VisualBasic
 Imports System
-Imports DevExpress.Web.ASPxGridView
-Imports DevExpress.Web.ASPxDataView
-Imports DevExpress.Web.ASPxEditors
-Imports DevExpress.Web.ASPxCallbackPanel
+Imports DevExpress.Web
 
 Partial Public Class _Default
 	Inherits System.Web.UI.Page
@@ -14,7 +11,7 @@ Partial Public Class _Default
 		Dim templateContainer As GridViewDataRowTemplateContainer = CType(button.NamingContainer, GridViewDataRowTemplateContainer)
 		button.ClientSideEvents.GotFocus = String.Format("function(s, e) {{ OnGotFocusEventHander(s, e, {0}); }}", templateContainer.KeyValue)
 	End Sub
-	Protected Sub ASPxCallbackPanel1_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase)
+	Protected Sub ASPxCallbackPanel1_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.CallbackEventArgsBase)
 		Session("CategoryID") = e.Parameter
 
 		Dim panel As ASPxCallbackPanel = CType(sender, ASPxCallbackPanel)
